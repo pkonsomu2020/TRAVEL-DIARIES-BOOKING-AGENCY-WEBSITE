@@ -1,8 +1,8 @@
 # TRAVEL DIARIES BOOKING AGENCY
 
-![TRAVEL DIARIES](https://github.com/pkonsomu2020/Booking-Tours-Website/SCREENSHOT.png)
+![TRAVEL DIARIES](./SCREENSHOT.png)
 
-Welcome to Travel Diaries Booking Agency! This website allows users to book tours and make payments using various payment methods online without visiting the destination physically.
+Welcome to Travel Diaries Booking Agency! This website allows users to book tours and make payments using various payment methods online without visiting the destination physically. You can find the project (traveldiariesagency.netlify.app)
 
 ## Table of Contents
 
