@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./css/booking.css">
+  <title>Tour Booking Form</title>
+</head>
+
+<body>
+  <h1>
+    <a href="index.html">Tour Booking Form</a>
+  </h1>
+  
+  <form id="booking-form">
+  
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email:</label> 
+    <input type="email" id="email" name="email">
+
+    <label for="date">Check in:</label>
+    <input type="date" id="date" name="date">
+
+    <label for="date">Check out:</label>
+    <input type="date" id="date" name="date">
+
+    <label for="tour">Tour Package:</label>
+    <select id="tour" name="tour">
+      <option value="package1">Greek Islands Tour</option>
+      <option value="package2">Italy Highlights</option>
+      <option value="package3">Spain Cultural Tour</option>
+    </select>
+
+    <label for="guests">Number of Guests:</label>
+    <input type="number" id="guests" name="guests" min="1">
+
+    <!-- <label for="date">Travel Date:</label>
+    <input type="date" id="date" name="date"> -->
+    
+    <!--<input type="submit" value="Book Now" onclick="redirectToTour()">-->
+    <button type="button" onclick="redirectToTour()">Book now</button> <!-- Error one that i fixed -->
+
+  </form>
+
+  <div id="confirmation-message" style="display: none;"></div>
+  <script src="js/main.js"></script>
+
+  <!-- Added the below js code -->
+  <script>
+    function redirectToTour() {
+      window.location.href="checkout.html"
+    }
+  </script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="js/jquery.waypoints.min.js"></script>
+  <!-- Flexslider -->
+  <script src="js/jquery.flexslider-min.js"></script>
+  <!-- Owl carousel -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- Magnific Popup -->
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/magnific-popup-options.js"></script>
+  <!-- Date Picker -->
+  <script src="js/bootstrap-datepicker.js"></script>
+  <!-- Stellar Parallax -->
+  <script src="js/jquery.stellar.min.js"></script>
+  <!-- Main -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
