@@ -53,7 +53,7 @@
         <label for="orderNotes">Order Notes:</label>
         <textarea id="orderNotes" name="orderNotes" rows="4" cols="50"></textarea><br><br>
 
-    <h3>Pay using:</h3>
+    <!-- <h3>Pay using:</h3>
     <form id="checkout-form" action="process_payment.php" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -71,24 +71,59 @@
         </select>
         
         <div id="paypal-container" style="display: none;">
-          <!-- PayPal specific fields can be added here -->
           <label for="paypal-email">PayPal Email:</label>
           <input type="email" id="paypal-email" name="paypal-email">
         </div>
         
         <div id="mpesa-container" style="display: none;">
-          <!-- M-Pesa specific fields can be added here -->
           <label for="mpesa-number">M-Pesa Number:</label>
           <input type="text" id="mpesa-number" name="mpesa-number">
-        </div>
+        </div> -->
+
+    <h3>Pay using:</h3>
+    <form id="checkout-form">
         
-        <button type="button" onclick="redirectToTour()">Book now</button>
-      </form>
+       <select id="payment-method">
+         <option value="paypal" onclick="redirectToPayPal()">PayPal</option>
+         <option value="mpesa" onclick="redirectToMpesa()">M-Pesa</option> 
+       </select>
+        
+       <div id="paypal-form" style="display:none;">
+         <label for="paypal-email">Email:</label>
+         <input type="email" id="paypal-email" name="paypal-email">
+         <label for="phone">Phone:</label>    
+         <input type="text" id="phone" name="phone"> 
+       </div>
+        
+       <div id="mpesa-form" style="display:none;">  
+         <label for="name">Name:</label>
+         <input type="text" id="name" name="name">
+        
+         <label for="email">Email:</label>
+         <input type="email" id="email" name="email">
+            
+         <label for="mpesa-account">Account:</label>
+         <input type="text" id="mpesa-account" name="mpesa-account">
+       </div>
+          
+      <!-- <button type="button" onclick="redirectToTour()">Pay</button>   -->
+    </form>
+
+        <!-- <button type="button" onclick="redirectToTour()">Book now</button>
+      </form> -->
 
       <!-- Added the below js code -->
   <script>
     function redirectToTour() {
       window.location.href="confirmation.html"
+    }
+
+    function redirectToPayPal() {
+      window.location.href="paypalform.html"
+    }
+
+    function redirectToMpesa() {
+      window.location.href="mpesaform.html"
     }
   </script>
 

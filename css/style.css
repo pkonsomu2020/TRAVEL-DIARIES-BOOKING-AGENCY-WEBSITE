@@ -24,6 +24,50 @@ body {
   margin-right: 10px; /* Add spacing to separate the icon from other menu items */
 }
 
+/* Style for the form-group container */
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Style for the label */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style for the form-field container */
+.form-field {
+  position: relative;
+
+}
+
+/* Style for the icon (optional) */
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #333; /* Change the color as needed */
+}
+
+/* Style for the select element */
+.location {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #000000;
+  font-size: 16px;
+  color: #fa0000; /* Text color */
+}
+
+/* Style for select element on focus */
+.form-control:focus {
+  border-color: #007bff; /* Change the focus color as needed */
+  outline: 0; /* Remove the default focus outline */
+}
+
 .book-button {
   background-color: #FFDD00;
   color: #000;

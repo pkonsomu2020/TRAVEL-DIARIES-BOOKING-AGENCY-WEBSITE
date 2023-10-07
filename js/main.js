@@ -417,4 +417,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// Show selected payment form
+const paymentMethod = document.getElementById('payment-method');
+
+paymentMethod.addEventListener('change', (e) => {
+  const selected = e.target.value;
+
+  document.getElementById('paypal-form').style.display = selected === 'paypal' ? 'block' : 'none';
   
+  document.getElementById('mpesa-form').style.display = selected === 'mpesa' ? 'block' : 'none';
+
+}); 

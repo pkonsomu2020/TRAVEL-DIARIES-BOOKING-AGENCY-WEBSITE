@@ -168,8 +168,8 @@
 							<ul class="nav nav-tabs">
 								<li class="active"><a data-toggle="tab" href="#flight"><i class="flaticon-plane"></i> Flight</a></li>
 								<li><a data-toggle="tab" href="#hotel"><i class="flaticon-resort"></i> Hotel</a></li>
-								<li><a data-toggle="tab" href="#car"><i class="flaticon-car"></i> Car Rent</a></li>
-								<li><a data-toggle="tab" href="#cruises"><i class="flaticon-boat"></i> Cruises</a></li>
+								<!-- <li><a data-toggle="tab" href="#car"><i class="flaticon-car"></i> Car Rent</a></li> -->
+								<!-- <li><a data-toggle="tab" href="#cruises"><i class="flaticon-boat"></i> Cruises</a></li> -->
 							</ul>
 						</div>
 						<div class="tab-content">
@@ -179,9 +179,16 @@
 				              	 <div class="col-md-3">
 				              	 	<div class="form-group">
 				                    <label for="date">Where:</label>
-				                    <div class="form-field">
+				                    <!-- <div class="form-field">
 				                      <input type="text" id="location" class="form-control" placeholder="Search Location">
-				                    </div>
+									</div> -->
+									<select id="location" class="form-control">
+										<option value="paris">Paris</option>
+										<option value="new-york">New York</option>
+										<option value="london">London</option>
+										<option value="tokyo">Tokyo</option>
+										<!-- Add more locations as needed -->
+									</select>
 				                  </div>
 				              	 </div>
 				                <div class="col-md-2">
@@ -218,7 +225,8 @@
 				                  </div>
 				                </div>
 				                <div class="col-md-2">
-				                  <input type="submit" name="submit" id="submit" value="Find Flights" class="btn btn-primary btn-block">
+				                  <!-- <input type="submit" name="submit" id="submit" value="Find Flights" class="btn btn-primary btn-block"> -->
+								  <button type="button" class="btn btn-primary btn-block" onclick="redirectToTour()">Find Flights</button>
 				                </div>
 				              </div>
 				            </form>
@@ -266,11 +274,12 @@
 				                  </div>
 				                </div>
 				                <div class="col-md-2">
-				                  <input type="submit" name="submit" id="submit" value="Find Hotel" class="btn btn-primary btn-block">
+				                  <!-- <input type="submit" name="submit" id="submit" value="Find Hotel" class="btn btn-primary btn-block"> -->
+								  <button type="button" class="btn btn-primary btn-block" onclick="redirectToForm()">Find Hotels</button>
 				                </div>
 				              </div>
 				            </form>
-						   </div>
+						   <!-- </div>
 						   <div id="car" class="tab-pane fade">
 						   	<form method="post" class="colorlib-form">
 				              	<div class="row">
@@ -304,9 +313,11 @@
 				                  <input type="submit" name="submit" id="submit" value="Find Car" class="btn btn-primary btn-block">
 				                </div>
 				              </div>
-				            </form>
-						   </div>
-						   <div id="cruises" class="tab-pane fade">
+				            </form> -->
+						   <!-- </div> -->
+
+
+						   <!-- <div id="cruises" class="tab-pane fade">
 						      <form method="post" class="colorlib-form">
 				              	<div class="row">
 				              	 <div class="col-md-4">
@@ -346,7 +357,7 @@
 				                </div>
 				              </div>
 				            </form>
-						   </div>
+						   </div> -->
 			         </div>
 					</div>
 				</div>
@@ -969,6 +980,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</footer>
 	</div>
+
+	<script>
+		function redirectToTour() {
+		  window.location.href="checkout.html"
+		}
+
+		function redirectToForm() {
+		  window.location.href="hotels.html"
+		}
+	</script>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
