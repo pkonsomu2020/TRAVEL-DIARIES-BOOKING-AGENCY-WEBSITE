@@ -2,7 +2,7 @@
 
 ![TRAVEL DIARIES](./SCREENSHOT.png)
 
-Welcome to Travel Diaries Booking Agency! This website allows users to book tours and make payments using various payment methods online without visiting the destination physically. You can find the project ([here](https://traveldiariesagency.vercel.app/))
+Welcome to Travel Diaries Booking Agency! This website allows users to book tours and make payments using various payment methods online without visiting the destination physically. You can find the project [here](https://traveldiariesagency.vercel.app/)
 
 ## Table of Contents
 
