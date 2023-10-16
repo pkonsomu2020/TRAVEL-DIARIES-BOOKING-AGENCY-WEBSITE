@@ -22,8 +22,24 @@
     <p>Your booking has been successfully processed.</p>
     <p>An email confirmation has been sent to your provided email address.</p>
     <!-- Add any additional information or messages here -->
+
+    <button type="button" onclick="redirectToTour()">Back to Home</button>
   </section>
 
   <script> src="./js/main.js"</script>
+
+  <script>
+    function redirectToTour() {
+      window.location.href="index.html"
+    }
+
+    function redirectToPayPal() {
+      window.location.href="paypalform.html"
+    }
+
+    function redirectToMpesa() {
+      window.location.href="mpesaform.html"
+    }
+  </script>
 </body>
 </html>

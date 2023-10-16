@@ -82,37 +82,36 @@
 
     <h3>Pay using:</h3>
     <form id="checkout-form">
+      <select id="payment-method" onchange="showPaymentForm()">
+        <option value="select" disabled selected>Select Payment Method</option>
+        <option value="paypal">PayPal</option>
+        <option value="mpesa">M-Pesa</option>
+      </select>
+    
+      <div id="paypal-form" style="display: none;">
+        <label for="paypal-name">Full Name:</label>
+        <input type="email" id="paypal-email" name="paypal-email">
+        <label for="paypal-email">Email:</label>
+        <input type="email" id="paypal-email" name="paypal-email">
+        <button type="button" onclick="redirectToTour()">Confirm now</button>
+
+      </div>
+    
+      <div id="mpesa-form" style="display: none;">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name">
         
-       <select id="payment-method">
-         <option value="paypal" onclick="redirectToPayPal()">PayPal</option>
-         <option value="mpesa" onclick="redirectToMpesa()">M-Pesa</option> 
-       </select>
-        
-       <div id="paypal-form" style="display:none;">
-         <label for="paypal-email">Email:</label>
-         <input type="email" id="paypal-email" name="paypal-email">
-         <label for="phone">Phone:</label>    
-         <input type="text" id="phone" name="phone"> 
-       </div>
-        
-       <div id="mpesa-form" style="display:none;">  
-         <label for="name">Name:</label>
-         <input type="text" id="name" name="name">
-        
-         <label for="email">Email:</label>
-         <input type="email" id="email" name="email">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
             
-         <label for="mpesa-account">Account:</label>
-         <input type="text" id="mpesa-account" name="mpesa-account">
-       </div>
-          
-      <!-- <button type="button" onclick="redirectToTour()">Pay</button>   -->
+        <label for="mpesa-account">M-Pesa Account:</label>
+        <input type="text" id="mpesa-account" name="mpesa-account">
+        <button type="button" onclick="redirectToTour()">Confirm now</button>
+      </div>
     </form>
 
-        <!-- <button type="button" onclick="redirectToTour()">Book now</button>
+      <!-- <button type="button" onclick="redirectToTour()">Book now</button>
       </form> -->
-
-      <!-- Added the below js code -->
   <script>
     function redirectToTour() {
       window.location.href="confirmation.html"
@@ -124,6 +123,25 @@
 
     function redirectToMpesa() {
       window.location.href="mpesaform.html"
+    }
+  </script>
+
+  <script>
+    function showPaymentForm() {
+      var paymentMethod = document.getElementById("payment-method").value;
+      var paypalForm = document.getElementById("paypal-form");
+      var mpesaForm = document.getElementById("mpesa-form");
+  
+      if (paymentMethod === "paypal") {
+        paypalForm.style.display = "block";
+        mpesaForm.style.display = "none";
+      } else if (paymentMethod === "mpesa") {
+        mpesaForm.style.display = "block";
+        paypalForm.style.display = "none";
+      } else {
+        paypalForm.style.display = "none";
+        mpesaForm.style.display = "none";
+      }
     }
   </script>
 
