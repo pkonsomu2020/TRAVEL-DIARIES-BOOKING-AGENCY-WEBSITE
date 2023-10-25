@@ -9,13 +9,16 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/main.js"></script>
+
+    <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=Ac6Ugfv-vxLNLM3Rb6idptIKBgm2NKUoborRelLuWeeirvPnR6c_gpvwnxKN2L6aTVb5_iCXC2lz15ZK"></script>
 </head>
 <body>
     <h1>
       <a href="index.html">Checkout</a>
     </h1>
     <h2>Billing Details:</h2>
-    <form action="./confirmation.html" method="POST">
+    <form id="checkout-form" action="./confirmation.html" method="POST">
         <label for="fullname">Full name:</label>
         <input type="text" id="FullName" name="FullName" required><br><br>
         
@@ -89,11 +92,13 @@
       </select>
     
       <div id="paypal-form" style="display: none;">
-        <label for="paypal-name">Full Name:</label>
+        <!-- <label for="paypal-name">Full Name:</label>
         <input type="email" id="paypal-email" name="paypal-email">
         <label for="paypal-email">Email:</label>
         <input type="email" id="paypal-email" name="paypal-email">
-        <button type="button" onclick="redirectToTour()">Confirm now</button>
+        <button type="button" onclick="redirectToTour()">Confirm now</button> -->
+
+        <div id="paypal-button-container"></div>
 
       </div>
     
@@ -112,6 +117,8 @@
 
       <!-- <button type="button" onclick="redirectToTour()">Book now</button>
       </form> -->
+
+      <!-- Added the below js code -->
   <script>
     function redirectToTour() {
       window.location.href="confirmation.html"
@@ -144,6 +151,123 @@
       }
     }
   </script>
+
+<!-- FORM FIELD REQUIRED FUNCTION -->
+<script>
+  function redirectToTour() {
+    // Get form input values
+    const fullName = document.getElementById("FullName").value;
+    const country = document.getElementById("country").value;
+    const streetAddress = document.getElementById("streetAddress").value;
+    const city = document.getElementById("city").value;
+    const zipCode = document.getElementById("zipCode").value;
+    const phone = document.getElementById("phone").value;
+    const email = document.getElementById("email").value;
+
+    // Validate the form fields
+    if (
+      fullName === "" ||
+      country === "" ||
+      streetAddress === "" ||
+      city === "" ||
+      zipCode === "" ||
+      phone === "" ||
+      email === ""
+    ) {
+      alert("Please fill out all required fields.");
+    } else {
+      // All required fields are filled; proceed to the payment page
+      window.location.href = "confirmation.html";
+    }
+  }
+</script>
+
+<!-- PAYPAL PAYMENT GATEAWAY REDIRECT FUNCTION -->
+<script>
+  paypal.Buttons({
+  createOrder: function(data, actions) {
+    // Set up the transaction details
+    return actions.order.create({
+      purchase_units: [
+        {
+          amount: {
+            value: '10.00' // The payment amount
+          }
+        }
+      ]
+    });
+  },
+  onApprove: function(data, actions) {
+    // Capture the funds from the transaction
+    return actions.order.capture().then(function(details) {
+      // Redirect to the confirmation page upon successful payment
+      window.location.href = "confirmation.html";
+    });
+  }
+}).render('#paypal-button-container');
+</script>
+
+
+<script>
+    // Get references to payment method select and containers
+    const paymentMethodSelect = document.getElementById("payment-method");
+  const paypalContainer = document.getElementById("paypal-container");
+  const mpesaContainer = document.getElementById("mpesa-container");
+  
+  // Add an event listener to the payment method select
+  paymentMethodSelect.addEventListener("change", function () {
+	const selectedMethod = paymentMethodSelect.value;
+  
+	// Hide all payment containers
+	paypalContainer.style.display = "none";
+	mpesaContainer.style.display = "none";
+  
+	// Show the selected payment container
+	if (selectedMethod === "paypal") {
+	  paypalContainer.style.display = "block";
+	} else if (selectedMethod === "mpesa") {
+	  mpesaContainer.style.display = "block";
+	}
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  // JavaScript for form submission and redirection
+  const checkoutForm = document.getElementById("checkout-form");
+
+  checkoutForm.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Process the form data (e.g., validation and payment processing)
+    // Get form data
+    const formData = new FormData(checkoutForm);
+
+    // Store the form data in localStorage
+    const formDataJSON = JSON.stringify(Object.fromEntries(formData));
+    localStorage.setItem("checkoutData", formDataJSON);
+
+    // Redirect to the confirmation page after processing
+    window.location.href = "confirmation.html";
+  });
+
+  // Add a JavaScript event listener to the "Book Now" button
+  document.querySelector(".book-button").addEventListener("click", function() {
+    // Redirect the user to the booking form page when the button is clicked
+    window.location.href = "tours-place-booking.html";
+  });
+
+  // Event listeners to recalculate the total based on package and guests
+  document.querySelector('select[name="pack"]').addEventListener('change', calculateTotal);
+  document.querySelector('input[name="guests"]').addEventListener('change', calculateTotal);
+  
+  console.log(checkoutForm); // This line is okay
+
+  function calculateTotal() {
+    // Implement your total calculation logic here
+  }
+});
+</script>
 
   <!-- jQuery -->
   <script src="js/jquery.min.js"></script>

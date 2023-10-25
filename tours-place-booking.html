@@ -74,5 +74,23 @@
   <!-- Main -->
   <script src="js/main.js"></script>
 
+  <!-- FORM FIELD REQUIRED FUNCTION -->
+  <script>
+    function validateForm() {
+        // Validate the form
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const checkin = document.getElementById("checkin").value;
+        const checkout = document.getElementById("checkout").value;
+        const tour = document.getElementById("tour").value;
+        const guests = document.getElementById("guests").value;
+
+        if (!name || !email || !checkin || !checkout || !tour || !guests) {
+            alert("Please fill in all the required fields.");
+        } else {
+            window.location.href = "checkout.html";
+        }
+    }
+  </script>
 </body>
 </html>

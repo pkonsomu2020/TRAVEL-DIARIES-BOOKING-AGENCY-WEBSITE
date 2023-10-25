@@ -16,10 +16,10 @@ body {
   }
   
   h1 {
-    font-family: 'Lobster', 'cursive';
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    color: #ccc;
-    /* font-weight: 700; */
+    color: #ff0000;
+    font-weight: 700;
 }
 
   h1 a {
